@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreList", "CoreList", "{388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hello Triangle", "Hello Triangle\Hello Triangle.vcxproj", "{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shaders", "Shaders\Shaders.vcxproj", "{556344D2-890B-47D3-88F8-368E7DE08F4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Debug|x64.ActiveCfg = Debug|x64
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Debug|x64.Build.0 = Debug|x64
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Debug|x86.ActiveCfg = Debug|Win32
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Debug|x86.Build.0 = Debug|Win32
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Release|x64.ActiveCfg = Release|x64
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Release|x64.Build.0 = Release|x64
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Release|x86.ActiveCfg = Release|Win32
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}.Release|x86.Build.0 = Release|Win32
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Debug|x64.ActiveCfg = Debug|x64
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Debug|x64.Build.0 = Debug|x64
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Debug|x86.ActiveCfg = Debug|Win32
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Debug|x86.Build.0 = Debug|Win32
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Release|x64.ActiveCfg = Release|x64
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Release|x64.Build.0 = Release|x64
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Release|x86.ActiveCfg = Release|Win32
+		{556344D2-890B-47D3-88F8-368E7DE08F4E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
+		{556344D2-890B-47D3-88F8-368E7DE08F4E} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B198A1C-70C5-4ADB-A503-1A2381AA6922}
+	EndGlobalSection
+EndGlobal
