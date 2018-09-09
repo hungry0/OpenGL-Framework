@@ -14,3 +14,5 @@ xxx\Externals\Glfw\Libs 添加到 项目->xx属性->配置属性->VC++目录->�
 xxx\Externals\OpenGL\Libs 添加到 项目->xx属性->配置属性->VC++目录->库目录  
 
 将opengl32.lib、glfw3.lib添加到 项目->xx属性->配置属性->链接器->输入->附加依赖项  
+
+将glad.c添加进解决方案，和main并列即可。
