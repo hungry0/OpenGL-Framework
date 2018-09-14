@@ -18,14 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="glad.c" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{0A3D143C-EE7A-4B10-BB89-29EE6ED1509C}</ProjectGuid>
-    <RootNamespace>HelloTriangle</RootNamespace>
+    <ProjectGuid>{B2908721-BC21-4926-88EF-17855A5CD3B4}</ProjectGuid>
+    <RootNamespace>CoordinateSystems</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -74,12 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\MySelf\OpenGL-Framework\Externals\Glad\Include;E:\MySelf\OpenGL-Framework\Externals\Glfw\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\MySelf\OpenGL-Framework\Externals\OpenGL\Libs;E:\MySelf\OpenGL-Framework\Externals\Glfw\Libs;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\MySelf\OpenGL-Framework\Externals\Glfw\Include;E:\MySelf\OpenGL-Framework\Externals\Glad\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\MySelf\OpenGL-Framework\Externals\OpenGL\Libs;E:\MySelf\OpenGL-Framework\Externals\Glfw\Libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\MySelf\OpenGL-Framework\OpenGL Framework\Coordinate Systems;../../Externals/Stb/Include;../../Externals/glm;../../Externals/Glfw/Include;../../Externals/Glad/Include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../Externals/OpenGL/Libs;../../Externals/Glfw/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -89,7 +81,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -99,9 +91,6 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
-    <Link>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -131,6 +120,21 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stb_image.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="container.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Fragment.fs" />
+    <None Include="Vertex.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
