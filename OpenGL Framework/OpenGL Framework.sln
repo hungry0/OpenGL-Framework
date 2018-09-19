@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Textures", "Textures\Textur
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Coordinate Systems", "Coordinate Systems\Coordinate Systems.vcxproj", "{B2908721-BC21-4926-88EF-17855A5CD3B4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Camera", "Camera\Camera.vcxproj", "{F978E220-A0A0-4865-9FA9-6A013356A9BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -53,6 +55,14 @@ Global
 		{B2908721-BC21-4926-88EF-17855A5CD3B4}.Release|x64.Build.0 = Release|x64
 		{B2908721-BC21-4926-88EF-17855A5CD3B4}.Release|x86.ActiveCfg = Release|Win32
 		{B2908721-BC21-4926-88EF-17855A5CD3B4}.Release|x86.Build.0 = Release|Win32
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Debug|x64.ActiveCfg = Debug|x64
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Debug|x64.Build.0 = Debug|x64
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Debug|x86.ActiveCfg = Debug|Win32
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Debug|x86.Build.0 = Debug|Win32
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Release|x64.ActiveCfg = Release|x64
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Release|x64.Build.0 = Release|x64
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Release|x86.ActiveCfg = Release|Win32
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +72,7 @@ Global
 		{556344D2-890B-47D3-88F8-368E7DE08F4E} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
 		{808C0A63-4BC5-4E51-9287-E43BB875228D} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
 		{B2908721-BC21-4926-88EF-17855A5CD3B4} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
+		{F978E220-A0A0-4865-9FA9-6A013356A9BB} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B198A1C-70C5-4ADB-A503-1A2381AA6922}
