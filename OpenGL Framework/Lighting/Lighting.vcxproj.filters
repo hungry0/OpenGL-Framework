@@ -28,16 +28,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Fragment.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="Vertex.vs">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="Light.fs">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="Cube.fs">
+      <Filter>资源文件</Filter>
+    </None>
     <None Include="Light.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Cube.vs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
