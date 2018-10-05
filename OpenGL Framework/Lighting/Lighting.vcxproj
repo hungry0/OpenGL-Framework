@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>../../Externals/Glad/Include;../../Externals/Glfw/Include;../../Externals/glm;../../Externals/Stb/Include;../Lighting;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\MySelf\OpenGL-Framework\Externals\Glfw\Libs;../../OpenGL/Libs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>../../Externals/Glfw/Libs;../../OpenGL/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

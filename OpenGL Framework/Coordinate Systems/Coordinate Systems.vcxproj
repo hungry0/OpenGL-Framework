@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\MySelf\OpenGL-Framework\OpenGL Framework\Coordinate Systems;../../Externals/Stb/Include;../../Externals/glm;../../Externals/Glfw/Include;../../Externals/Glad/Include;$(IncludePath)</IncludePath>
+    <IncludePath>../Coordinate Systems;../../Externals/Stb/Include;../../Externals/glm;../../Externals/Glfw/Include;../../Externals/Glad/Include;$(IncludePath)</IncludePath>
     <LibraryPath>../../Externals/OpenGL/Libs;../../Externals/Glfw/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

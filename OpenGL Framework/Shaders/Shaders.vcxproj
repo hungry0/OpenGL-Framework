@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\GitProject\OpenGL-Framework\Externals\Glfw\Include;E:\GitProject\OpenGL-Framework\Externals\Glad\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\GitProject\OpenGL-Framework\Externals\OpenGL\Libs;E:\GitProject\OpenGL-Framework\Externals\Glfw\Libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../Externals/Glfw/Include;../../Externals/Glad/Include;../Shaders;$(IncludePath)</IncludePath>
+    <LibraryPath>../../Externals/OpenGL/Libs;../../Externals/Glfw/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -123,6 +123,9 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
