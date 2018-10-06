@@ -41,4 +41,21 @@
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="albedo.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="ao.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="metallic.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="normal.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="roughness.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>../../Externals/Stb/Include;../../Externals/glm;../../Externals/Glfw/Include;../PBR;../../Externals/Glad/Include;$(IncludePath)</IncludePath>
+    <IncludePath>../../Externals/Stb/Include;../../Externals/glm;../../Externals/Glfw/Include;../PBR_Textures;../../Externals/Glad/Include;$(IncludePath)</IncludePath>
     <LibraryPath>../../Externals/Glfw/Libs;../../Externals/OpenGL/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -131,6 +131,13 @@
   <ItemGroup>
     <None Include="Fragment.fs" />
     <None Include="Vertex.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="albedo.png" />
+    <Image Include="ao.png" />
+    <Image Include="metallic.png" />
+    <Image Include="normal.png" />
+    <Image Include="roughness.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

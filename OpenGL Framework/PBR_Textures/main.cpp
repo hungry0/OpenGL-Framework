@@ -75,6 +75,20 @@ int main()
 	Shader shader("Vertex.vs", "Fragment.fs");
 	shader.use();
 
+	unsigned int albeo = loadTexture("albedo.png");
+	unsigned int normal = loadTexture("normal.png");
+	unsigned int metallic = loadTexture("metallic.png");
+	unsigned int roughness = loadTexture("roughness.png");
+	unsigned int ao = loadTexture("ao.png");
+
+	std::cout << albeo << " " << normal << metallic << roughness << ao;
+
+	shader.setInt("albeoMap", 0);
+	shader.setInt("normalMap", 1);
+	shader.setInt("metallicMap", 2);
+	shader.setInt("roughnessMap", 3);
+	shader.setInt("aoMap", 4);
+
 	glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 	shader.SetMat4("projection", projection);
 
@@ -119,6 +133,17 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		shader.use();
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, albeo);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, normal);
+		glActiveTexture(GL_TEXTURE2);
+		glBindTexture(GL_TEXTURE_2D, metallic);
+		glActiveTexture(GL_TEXTURE3);
+		glBindTexture(GL_TEXTURE_2D, roughness);
+		glActiveTexture(GL_TEXTURE4);
+		glBindTexture(GL_TEXTURE_2D, ao);
 
 		glm::mat4 view = camera.GetViewMatrix();
 		shader.SetMat4("view", view);
