@@ -69,7 +69,6 @@ void main()
 	F0 = mix(F0, albedo, metallic);
 
 	vec3 Lo = vec3(0.0);
-
 	for(int i = 0; i < 4; i++)
 	{
 		vec3 L = normalize(lightPositions[i] - WorldPos);
