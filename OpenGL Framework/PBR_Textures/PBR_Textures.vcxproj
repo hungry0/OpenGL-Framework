@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9B205D55-A300-40EE-BA30-6611BEDEE0A7}</ProjectGuid>
+    <ProjectGuid>{1AC82074-A2C4-4F3B-A1C1-E817166ED143}</ProjectGuid>
     <RootNamespace>PBRTextures</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>../../Externals/Stb/Include;../../Externals/glm;../../Externals/Glfw/Include;../PBR_Textures;../../Externals/Glad/Include;$(IncludePath)</IncludePath>
+    <IncludePath>../../Externals/Glad/Include;../PBR_Textures;../../Externals/Glfw/Include;../../Externals/glm;../../Externals/Stb/Include;$(IncludePath)</IncludePath>
     <LibraryPath>../../Externals/Glfw/Libs;../../Externals/OpenGL/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -81,7 +81,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -102,7 +102,8 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -125,19 +126,19 @@
     <ClCompile Include="stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="Shader.h" />
+    <Image Include="albedo.png" />
+    <Image Include="ao.png" />
+    <Image Include="metallic.png" />
+    <Image Include="normal.png" />
+    <Image Include="roughness.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Fragment.fs" />
     <None Include="Vertex.vs" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="albedo.png" />
-    <Image Include="ao.png" />
-    <Image Include="metallic.png" />
-    <Image Include="normal.png" />
-    <Image Include="roughness.png" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="Shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

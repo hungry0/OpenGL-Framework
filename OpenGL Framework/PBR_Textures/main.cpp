@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#include <string>
+
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
@@ -18,7 +20,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
 
-unsigned int loadTexture(const char* path);
+unsigned int loadTexture(std::string path);
 
 void renderSphere();
 
@@ -291,13 +293,14 @@ void renderSphere()
 	glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
 }
 
-unsigned int loadTexture(char* const path)
+unsigned int loadTexture(std::string path)
 {
+
 	unsigned int textureID;
 	glGenTextures(1, &textureID);
 
 	int width, height, nrComponents;
-	unsigned char *data = stbi_load(path, &width, &height, &nrComponents, 0);
+	unsigned char *data = stbi_load(path.c_str(), &width, &height, &nrComponents, 0);
 
 	if (data)
 	{
@@ -332,7 +335,7 @@ unsigned int loadTexture(char* const path)
 		stbi_image_free(data);
 	}
 
-	return textureID;
+	return textureID;  
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
