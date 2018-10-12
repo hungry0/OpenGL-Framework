@@ -129,7 +129,12 @@
     <Image Include="container.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Background.fs" />
+    <None Include="Background.vs" />
+    <None Include="CubeMap.fs" />
+    <None Include="CubeMap.vs" />
     <None Include="Fragment.fs" />
+    <None Include="newport_loft.hdr" />
     <None Include="Vertex.vs" />
   </ItemGroup>
   <ItemGroup>

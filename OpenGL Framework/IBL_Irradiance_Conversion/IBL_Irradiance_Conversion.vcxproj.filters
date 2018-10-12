@@ -37,6 +37,21 @@
     <None Include="Vertex.vs">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="newport_loft.hdr">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="CubeMap.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="CubeMap.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Background.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Background.fs">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
