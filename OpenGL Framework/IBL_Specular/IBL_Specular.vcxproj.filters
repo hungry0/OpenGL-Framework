@@ -26,19 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Background.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="Background.vs">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="Circus_Backstage_3k.hdr">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="CubeMap.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="CubeMap.vs">
       <Filter>资源文件</Filter>
     </None>
     <None Include="irradiance_convolution.fs">
@@ -53,10 +41,31 @@
     <None Include="newport_loft.hdr">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="PBR.fs">
+    <None Include="background.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="PBR.vs">
+    <None Include="background.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="brdf.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="brdf.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="prefilter.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="cubemap.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="cubemap.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="pbr.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="pbr.vs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

@@ -126,17 +126,20 @@
     <ClCompile Include="stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Background.fs" />
-    <None Include="Background.vs" />
+    <None Include="background.fs" />
+    <None Include="background.vs" />
+    <None Include="brdf.fs" />
+    <None Include="brdf.vs" />
     <None Include="Circus_Backstage_3k.hdr" />
-    <None Include="CubeMap.fs" />
-    <None Include="CubeMap.vs" />
+    <None Include="cubemap.fs" />
+    <None Include="cubemap.vs" />
     <None Include="irradiance_convolution.fs" />
     <None Include="irradiance_convolution.vs" />
     <None Include="Mans_Outside_2k.hdr" />
     <None Include="newport_loft.hdr" />
-    <None Include="PBR.fs" />
-    <None Include="PBR.vs" />
+    <None Include="pbr.fs" />
+    <None Include="pbr.vs" />
+    <None Include="prefilter.fs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
