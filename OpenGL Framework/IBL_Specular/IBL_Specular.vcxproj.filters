@@ -14,4 +14,58 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Background.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Background.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Circus_Backstage_3k.hdr">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="CubeMap.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="CubeMap.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="irradiance_convolution.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="irradiance_convolution.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Mans_Outside_2k.hdr">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="newport_loft.hdr">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="PBR.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="PBR.vs">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
