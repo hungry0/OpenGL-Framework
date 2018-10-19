@@ -11,9 +11,10 @@
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
 
-
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 
 // settings
 const unsigned int SCR_WIDTH = 1280;
@@ -25,10 +26,18 @@ void renderScene(const Shader &shader);
 void renderCube();
 void renderQuad();
 
+bool firstMouse = true;
+
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
+
+float lastX = 800.0f / 2.0;
+float lastY = 600.0f / 2.0;
+
 // meshes
 unsigned int planeVAO;
 
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.0f, 2.0f, 5.0f));
 
 int main()
 {
@@ -54,6 +63,9 @@ int main()
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+	glfwSetCursorPosCallback(window, mouse_callback);
+	glfwSetScrollCallback(window, scroll_callback);
 
 	// glad: load all OpenGL function pointers
 // ---------------------------------------
@@ -104,8 +116,11 @@ int main()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, SHADOW_WIDTH, SHADOW_HEIGHT, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+
+	GLfloat borderColor[] = {1.0, 1.0, 1.0, 1.0};
+	glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
@@ -116,8 +131,14 @@ int main()
 	Shader writeToDepthShader("shadow_mappinng_depth.vs", "shadow_mappinng_depth.fs");
 	Shader debugDepthQuadShader("debug_quad.vs", "debug_quad.fs");
 
+	Shader shader("shadow_mapping.vs", "shadow_mapping.fs");
+
 	debugDepthQuadShader.use();
 	debugDepthQuadShader.setInt("depthMap", 0);
+
+	shader.use();
+	shader.setInt("diffuseTexture", 0);
+	shader.setInt("shadowMap", 1);
 
 	glm::vec3 lightPos(-2.0f, 4.0f, -1.0f);
 
@@ -125,6 +146,10 @@ int main()
 // -----------
 	while (!glfwWindowShouldClose(window))
 	{
+		float currentFrame = glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+
 		// input
 		// -----
 		processInput(window);
@@ -137,7 +162,7 @@ int main()
 		glm::mat4 lightProj, lightView;
 		glm::mat4 lightSpaceMatrix;
 
-		float near_plane = 1.0f, far_plane = 7.5f;
+		float near_plane = 1.0f, far_plane = 17.5f;
 		lightProj = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
 		lightView = glm::lookAt(lightPos, glm::vec3(0.0f), glm::vec3(0.0, 1.0, 0.0));
 		lightSpaceMatrix = lightProj * lightView;
@@ -145,11 +170,42 @@ int main()
 		writeToDepthShader.use();
 		writeToDepthShader.SetMat4("lightSpaceMatrix", lightSpaceMatrix);
 
+		glCullFace(GL_FRONT);
 		glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
 		glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
 		glClear(GL_DEPTH_BUFFER_BIT);
 		renderScene(writeToDepthShader);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glCullFace(GL_BACK);
+
+
+		glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+/*		debugDepthQuadShader.use();
+		debugDepthQuadShader.setFloat("near_plane", near_plane);
+		debugDepthQuadShader.setFloat("far_plane", far_plane);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, depthMap);
+
+		renderQuad();  */
+
+		shader.use();
+		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+		glm::mat4 view = camera.GetViewMatrix();
+
+		shader.SetMat4("projection", projection);
+		shader.SetMat4("view", view);
+
+		shader.SetVec3("viewPos", camera.Position);
+		shader.SetVec3("lightPos", lightPos);
+		shader.SetMat4("lightSpaceMatrix", lightSpaceMatrix);
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, woodTexture);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, depthMap);
+		renderScene(shader);
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
@@ -169,6 +225,16 @@ void processInput(GLFWwindow *window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
+
+	float cameraSpeed = 2.5 * deltaTime;
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		camera.ProcessKeyboard(FORWARD, cameraSpeed);
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		camera.ProcessKeyboard(BACKWARD, cameraSpeed);
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		camera.ProcessKeyboard(LEFT, cameraSpeed);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		camera.ProcessKeyboard(RIGHT, cameraSpeed);
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
@@ -178,6 +244,30 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	// make sure the viewport matches the new window dimensions; note that width and 
 	// height will be significantly larger than specified on retina displays.
 	glViewport(0, 0, width, height);
+}
+
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+	if (firstMouse)
+	{
+		lastX = xpos;
+		lastY = ypos;
+		firstMouse = false;
+	}
+
+	float xoffset = xpos - lastX;
+	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+
+	lastX = xpos;
+	lastY = ypos;
+
+	camera.ProcessMouseMovement(xoffset, yoffset);
+}
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	camera.ProcessMouseScroll(yoffset);
 }
 
 // renders the 3D scene

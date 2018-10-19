@@ -29,17 +29,35 @@
     <ClInclude Include="Shader.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="container.jpg">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="wood.png">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Fragment.fs">
+    <None Include="debug_quad.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="Vertex.vs">
+    <None Include="debug_quad.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shadow_mappinng_depth.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shadow_mappinng_depth.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shadow_mapping.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shadow_mapping.fs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

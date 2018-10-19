@@ -136,6 +136,8 @@
   <ItemGroup>
     <None Include="debug_quad.fs" />
     <None Include="debug_quad.vs" />
+    <None Include="shadow_mapping.fs" />
+    <None Include="shadow_mapping.vs" />
     <None Include="shadow_mappinng_depth.fs" />
     <None Include="shadow_mappinng_depth.vs" />
   </ItemGroup>
