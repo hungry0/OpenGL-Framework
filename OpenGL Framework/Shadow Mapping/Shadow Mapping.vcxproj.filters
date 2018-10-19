@@ -34,9 +34,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="container.jpg">
-      <Filter>资源文件</Filter>
-    </Image>
     <Image Include="wood.png">
       <Filter>资源文件</Filter>
     </Image>

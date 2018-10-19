@@ -130,7 +130,6 @@
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="container.jpg" />
     <Image Include="wood.png" />
   </ItemGroup>
   <ItemGroup>
