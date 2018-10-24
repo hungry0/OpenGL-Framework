@@ -27,7 +27,7 @@ public:
 	bool gammaCorrection;
 
 
-	Model(char* path, bool gamma = false) : gammaCorrection(gamma)
+	Model(const char* path, bool gamma = false) : gammaCorrection(gamma)
 	{
 		loadModel(path);
 	}
@@ -41,9 +41,6 @@ public:
 	}
 
 private:
-	vector<Mesh> meshes;
-	string directory;
-
 	void loadModel(string const & path)
 	{
 		Assimp::Importer importer;
@@ -55,6 +52,10 @@ private:
 		}
 
 		directory = path.substr(0, path.find_last_not_of('/'));
+
+		directory = "model";
+
+		cout << "directory: " << directory << endl;
 
 		processNode(scene->mRootNode, scene);
 	}
@@ -117,6 +118,8 @@ private:
 			vector.y = mesh->mBitangents[i].y;
 			vector.z = mesh->mBitangents[i].z;
 			vertex.Bitangent = vector;
+
+			vertices.push_back(vertex);
 		}
 
 		for (unsigned int i = 0; i < mesh->mNumFaces; ++i)
