@@ -15,7 +15,7 @@
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
 
-unsigned int loadTexture(std::string path);
+unsigned int loadTexture(std::string path, bool gammaCorrection);
 void renderQuad();
 void renderCube();
 
@@ -28,7 +28,7 @@ const unsigned int SCR_HEIGHT = 600;
 
 bool hdr = true;
 bool hdrKeyPressed = false;
-float exposure = 0.5f;
+float exposure = 115.0f;
 
 // timing
 float deltaTime = 0.0f;
@@ -72,7 +72,7 @@ int main()
 	Shader shader("lighting.vs", "lighting.fs");
 	Shader hdrShader("hdr.vs", "hdr.fs");
 
-	unsigned int woodTexture = loadTexture("wood.png");
+	unsigned int woodTexture = loadTexture("wood.png", true);
 
 	unsigned int hdrFBO;
 	glGenFramebuffers(1, &hdrFBO);
@@ -147,8 +147,6 @@ int main()
 			shader.setVec3("lights[" + std::to_string(i) + "].Position", lightPositions[i]);
 			shader.setVec3("lights[" + std::to_string(i) + "].Color", lightColors[i]);
 		}
-
-		shader.setVec3("viewPos", camera.Position);
 
 		glm::mat4 model = glm::mat4();
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 25.0));
@@ -341,7 +339,7 @@ void renderQuad()
 
 // utility function for loading a 2D texture from file
 // ---------------------------------------------------
-unsigned int loadTexture(std::string path)
+unsigned int loadTexture(std::string path, bool gammaCorrection)
 {
 	unsigned int textureID;
 	glGenTextures(1, &textureID);
@@ -350,16 +348,25 @@ unsigned int loadTexture(std::string path)
 	unsigned char *data = stbi_load(path.c_str(), &width, &height, &nrComponents, 0);
 	if (data)
 	{
-		GLenum format;
+		GLenum internalFormat;
+		GLenum dataFormat;
 		if (nrComponents == 1)
-			format = GL_RED;
+		{
+			internalFormat = dataFormat = GL_RED;
+		}
 		else if (nrComponents == 3)
-			format = GL_RGB;
+		{
+			internalFormat = gammaCorrection ? GL_SRGB : GL_RGB;
+			dataFormat = GL_RGB;
+		}
 		else if (nrComponents == 4)
-			format = GL_RGBA;
+		{
+			internalFormat = gammaCorrection ? GL_SRGB_ALPHA : GL_RGBA;
+			dataFormat = GL_RGBA;
+		}
 
 		glBindTexture(GL_TEXTURE_2D, textureID);
-		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+		glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, dataFormat, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
 
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
