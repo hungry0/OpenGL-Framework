@@ -15,16 +15,56 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Deferred_Shading.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <None Include="g_buffer.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="g_buffer.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="fbo_debug.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="fbo_debug.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="defered_light_box.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="defered_light_box.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="defered_shading.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="defered_shading.vs">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="marble.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="metal.png">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -17,6 +17,11 @@ public:
 
 	Shader(const GLchar* vertexPath, const GLchar* fragmentPath)
 	{
+        // debug info
+        std::cout << vertexPath << std::endl;
+        std::cout << fragmentPath << std::endl;
+        // debug info end
+
 		std::string vertexCode;
 		std::string fragmentCode;
 
@@ -44,6 +49,7 @@ public:
 		}
 		catch (std::ifstream::failure e)
 		{
+            std::cout << "SYSTEM IO OUT: " << e.code() << std::endl;
 			std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULL_READ" << std::endl;
 		}
 

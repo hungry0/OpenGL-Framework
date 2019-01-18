@@ -41,6 +41,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HDR", "HDR\HDR.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bloom", "Bloom\Bloom.vcxproj", "{77ECE3F4-1965-488B-A263-80D290998E23}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deferred_Shading", "Deferred_Shading\Deferred_Shading.vcxproj", "{137488A7-F043-49F1-BD06-DB5E410EF9F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -193,6 +195,14 @@ Global
 		{77ECE3F4-1965-488B-A263-80D290998E23}.Release|x64.Build.0 = Release|x64
 		{77ECE3F4-1965-488B-A263-80D290998E23}.Release|x86.ActiveCfg = Release|Win32
 		{77ECE3F4-1965-488B-A263-80D290998E23}.Release|x86.Build.0 = Release|Win32
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Debug|x64.ActiveCfg = Debug|x64
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Debug|x64.Build.0 = Debug|x64
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Debug|x86.ActiveCfg = Debug|Win32
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Debug|x86.Build.0 = Debug|Win32
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Release|x64.ActiveCfg = Release|x64
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Release|x64.Build.0 = Release|x64
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Release|x86.ActiveCfg = Release|Win32
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -216,6 +226,7 @@ Global
 		{632BB41D-7197-4AB9-84F3-F2DBCE6A6164} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
 		{FA6F5F8C-0E9F-4721-B3E7-F00888124F76} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
 		{77ECE3F4-1965-488B-A263-80D290998E23} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
+		{137488A7-F043-49F1-BD06-DB5E410EF9F5} = {388D3BBB-DFC4-46FF-AF5E-73C4DF0AAC5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B198A1C-70C5-4ADB-A503-1A2381AA6922}
