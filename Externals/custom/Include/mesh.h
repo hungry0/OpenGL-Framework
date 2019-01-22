@@ -76,7 +76,7 @@ public:
 
 			glUniform1i(glGetUniformLocation(shader.ID, (name + number).c_str()), i);
 
-            std::cout << "bind the id: " << (name + number).c_str() << "to the mesh." << std::endl;
+            //std::cout << "bind the id: " << (name + number).c_str() << "to the mesh." << std::endl;
 
 			glBindTexture(GL_TEXTURE_2D, textures[i].id);
 		}

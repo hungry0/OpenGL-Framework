@@ -14,18 +14,27 @@
 #include <model.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 
 unsigned int loadTexture(std::string path);
 void renderQuad();
 void renderCube();
 
-// camera
-Camera camera(glm::vec3(0.0f, 0.0f, 5.0f));
-
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
+// camera
+Camera camera(glm::vec3(0.0f, 0.0f, 5.0f));
+float lastX = (float)SCR_WIDTH / 2.0f;
+float lastY = (float)SCR_HEIGHT / 2.0f;
+bool firstMouse = true;
+
+// timing
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
 
 int main()
 {
@@ -51,6 +60,8 @@ int main()
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
 
 	// glad: load all OpenGL function pointers
 // ---------------------------------------
@@ -155,9 +166,14 @@ int main()
 // -----------
 	while (!glfwWindowShouldClose(window))
 	{
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
 		// input
 		// -----
 		processInput(window);
+
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -192,14 +208,14 @@ int main()
         glBindTexture(GL_TEXTURE_2D, gAlbedoSpec);
         for (unsigned int i = 0; i < lightPositions.size(); i++)
         {
-            shaderLightingPass.setVec3("lights[i" + std::to_string(i) + "].Position", lightPositions[i]);
-            shaderLightingPass.setVec3("lights[i" + std::to_string(i) + "].Color", lightColors[i]);
+            shaderLightingPass.setVec3("lights[" + std::to_string(i) + "].Position", lightPositions[i]);
+            shaderLightingPass.setVec3("lights[" + std::to_string(i) + "].Color", lightColors[i]);
 
             const float constant = 1.0;
             const float linear = 0.7;
             const float quadratic = 1.8;
-            shaderLightingPass.setFloat("lights[i" + std::to_string(i) + "].Linear", linear);
-            shaderLightingPass.setFloat("lights[i" + std::to_string(i) + "].Quadratic", quadratic);
+            shaderLightingPass.setFloat("lights[" + std::to_string(i) + "].Linear", linear);
+            shaderLightingPass.setFloat("lights[" + std::to_string(i) + "].Quadratic", quadratic);
         }
         shaderLightingPass.setVec3("viewPos", camera.Position);
         renderQuad();
@@ -240,6 +256,38 @@ void processInput(GLFWwindow *window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera.ProcessKeyboard(FORWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera.ProcessKeyboard(LEFT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+}
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if (firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos;
+
+    lastX = xpos;
+    lastY = ypos;
+
+    camera.ProcessMouseMovement(xoffset, yoffset);
+}
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    camera.ProcessMouseScroll(yoffset);
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes

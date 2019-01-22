@@ -20,6 +20,8 @@ const int NR_LIGHTS = 32;
 uniform Light lights[NR_LIGHTS];
 uniform vec3 viewPos;
 
+vec3 ambient = vec3(0.2f,0.2f,0.2f);
+
 void main()
 {
     vec3 FragPos = texture(gPosition, TexCoords).rgb;
@@ -44,9 +46,8 @@ void main()
         diffuse *= attenuation;
         specular *= attenuation;
 
-        lighting += diffuse + specular;
+        lighting += diffuse + specular + ambient;
     }
 
-    //FragColor = vec4(1.0,0.0,0.0,1.0);
     FragColor = vec4(lighting, 1.0);
 }
