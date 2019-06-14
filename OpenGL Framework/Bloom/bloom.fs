@@ -1,25 +1,50 @@
 #version 330 core
-out vec4 FragColor;
+layout (location = 0) out vec4 FragColor;
+layout (location = 1) out vec4 BrightColor;
 
-in vec2 TexCoords;
+in VS_OUT {
+    vec3 FragPos;
+    vec3 Normal;
+    vec2 TexCoords;
+} fs_in;
 
-uniform sampler2D hdrBuffer;
-uniform bool hdr;
-uniform float exposure;
+struct Light {
+    vec3 Postion;
+    vec3 Color;
+};
+
+uniform Light lights[4];
+uniform sampler2D diffuseTexture;
+uniform vec3 viewPos;
 
 void main()
-{    
-	const float gamma = 2.2;
-	vec3 hdrColor = texture(hdrBuffer, TexCoords).rgb;
-	if(hdr)
-	{
-		vec3 result = vec3(1.0) - exp(-hdrColor * exposure);
-		result = pow(result, vec3(1.0 / gamma));
-		FragColor = vec4(result, 1.0);
-	}
-	else
-	{
-		vec3 result = pow(hdrColor, vec3(1.0 / gamma));
-		FragColor = vec4(result, 1.0);
-	}
+{
+    vec3 color = texture(diffuseTexture, fs_in.TexCoords).rgb;
+    vec3 normal = normalize(fs_in.Normal);
+
+    vec3 ambient = 0.0 * color;
+
+    vec3 lighting = vec3(0.0);
+    vec3 viewDir = normalize(viewPos - fs_in.FragPos);
+    for(int i = 0; i < 4; i++)
+    {
+        vec3 lightDir = normalize(lights[i].Postion - fs_in.FragPos);
+        float diff = max(dot(lightDir, normal), 0.0);
+        vec3 result = lights[i].Color * diff * color;
+
+        float distance = length(fs_in.FragPos - lights[i].Postion);
+        result *= 1.0 / (distance * distance);
+        lighting += result;
+    }
+
+    vec3 result = ambient + lighting;
+    float brightness = dot(result, vec3(0.2126, 0.7152, 0.0722));
+    if(brightness > 1.0)
+    {
+        BrightColor = vec4(result, 1.0);
+    }else
+    {
+        BrightColor = vec4(0.0,0.0,0.0,1.0);
+    }
+    FragColor = vec4(result, 1.0);
 }

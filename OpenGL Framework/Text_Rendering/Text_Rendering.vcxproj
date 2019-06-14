@@ -73,6 +73,10 @@
     <IncludePath>../../Externals/freetype/Include;../Text_Rendering;../../Externals/Stb/Include;../../Externals/glm;../../Externals/Glfw/Include;../../Externals/Glad/Include;$(IncludePath)</IncludePath>
     <LibraryPath>../../Externals/freetype/Libs;../../OpenGL/Libs;../../Externals/Glfw/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>..\..\Externals\custom\Include;..\..\Externals\Glad\Include;..\..\Externals\Glfw\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\OpenGL-Framework\Externals\Glfw\Libs;..\..\OpenGL-Framework\Externals\OpenGL\Libs;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

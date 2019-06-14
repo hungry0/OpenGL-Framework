@@ -78,8 +78,8 @@
     <LibraryPath>../../Externals/OpenGL/Libs;../../Externals/Glfw/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\MySelf\OpenGL-Framework\Externals\Glfw\Include;E:\MySelf\OpenGL-Framework\Externals\Glad\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\MySelf\OpenGL-Framework\Externals\OpenGL\Libs;E:\MySelf\OpenGL-Framework\Externals\Glfw\Libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\Externals\glm;..\..\Externals\Glfw\Include;..\..\Externals\Glad\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\Externals\OpenGL\Libs;..\..\Externals\Glfw\Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

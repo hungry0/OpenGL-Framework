@@ -73,6 +73,10 @@
     <IncludePath>../../Externals/Glad/Include;../PBR_Textures;../../Externals/Glfw/Include;../../Externals/glm;../../Externals/Stb/Include;$(IncludePath)</IncludePath>
     <LibraryPath>../../Externals/Glfw/Libs;../../Externals/OpenGL/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>..\..\Externals\Glad\Include;..\..\Externals\Glfw\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\OpenGL-Framework\Externals\Glfw\Libs;..\..\OpenGL-Framework\Externals\OpenGL\Libs;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

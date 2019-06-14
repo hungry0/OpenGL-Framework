@@ -26,22 +26,37 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="hdr.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="hdr.vs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="lighting.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="lighting.vs">
-      <Filter>资源文件</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="wood.png">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="container2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="light_box.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="light_box.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="bloom.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="bloom.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="bloom_final.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="bloom_final.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="blur.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="blur.vs">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
