@@ -20,16 +20,15 @@ void renderQuad();
 void renderCube();
 
 // camera
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.0f, 0.0f, 5.0f));
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1280;
+const unsigned int SCR_HEIGHT = 720;
 
 bool bloom = true;
-bool hdr = true;
 bool hdrKeyPressed = false;
-float exposure = 0.5f;
+float exposure = 1.0f;
 
 // timing
 float deltaTime = 0.0f;
@@ -128,8 +127,6 @@ int main()
             std::cout << "Framebuffer not complete!" << std::endl;
         }
     }
-
-
 
 	std::vector<glm::vec3> lightPositions;
     lightPositions.push_back(glm::vec3(0.0f, 0.5f, 1.5f));
@@ -309,7 +306,6 @@ void processInput(GLFWwindow *window)
 
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !hdrKeyPressed)
 	{
-		hdr = !hdr;
 		hdrKeyPressed = true;
 	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
@@ -390,7 +386,7 @@ void renderCube()
              1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 1.0f, 1.0f, // top-right     
              1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f, // bottom-right
             -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f, // top-left
-            -1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 0.0f  // bottom-left        
+            -1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 0.0f  // bottom-left     
         };
         glGenVertexArrays(1, &cubeVAO);
         glGenBuffers(1, &cubeVBO);
