@@ -28,14 +28,8 @@
     <None Include="defered_light_box.vs" />
     <None Include="defered_shading.fs" />
     <None Include="defered_shading.vs" />
-    <None Include="fbo_debug.fs" />
-    <None Include="fbo_debug.vs" />
     <None Include="g_buffer.fs" />
     <None Include="g_buffer.vs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="marble.jpg" />
-    <Image Include="metal.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -118,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp_vc141.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
