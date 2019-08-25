@@ -18,30 +18,21 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\Hello Triangle\glad.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stb_image.cpp">
+    <ClCompile Include="glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ssao_geometry.vs">
+    <None Include="anti_aliasing.vs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao_geometry.fs">
+    <None Include="anti_aliasing.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao.vs">
+    <None Include="aa_post.vs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao_light.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="ssao_blur.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="ssao.fs">
+    <None Include="aa_post.fs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

@@ -18,30 +18,41 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\Hello Triangle\glad.c">
+    <ClCompile Include="stb_image.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="stb_image.cpp">
+    <ClCompile Include="glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinnedMesh.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ssao_geometry.vs">
+    <ClInclude Include="camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinnedMesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinnedTexture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Fragment.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao_geometry.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="ssao.vs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="ssao_light.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="ssao_blur.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="ssao.fs">
+    <None Include="Vertex.vs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

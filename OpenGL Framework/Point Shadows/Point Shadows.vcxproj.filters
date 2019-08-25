@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\Hello Triangle\glad.c">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stb_image.cpp">
@@ -26,22 +26,24 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ssao_geometry.vs">
+    <Image Include="wood.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="point_shadows.vs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao_geometry.fs">
+    <None Include="point_shadows.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao.vs">
+    <None Include="point_shadows_depth.vs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao_light.fs">
+    <None Include="point_shadows_depth.gs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ssao_blur.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="ssao.fs">
+    <None Include="point_shadows_depth.fs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

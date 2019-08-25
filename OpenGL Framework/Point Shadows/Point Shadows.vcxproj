@@ -18,11 +18,26 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stb_image.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="wood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="point_shadows.fs" />
+    <None Include="point_shadows.vs" />
+    <None Include="point_shadows_depth.fs" />
+    <None Include="point_shadows_depth.gs" />
+    <None Include="point_shadows_depth.vs" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{98D5F161-9EB0-4FFF-B5F3-CDD949F49E56}</ProjectGuid>
+    <ProjectGuid>{7D9F430E-25A4-4141-AFEF-4D883DD1C466}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SSAO</RootNamespace>
+    <RootNamespace>PointShadows</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -72,8 +87,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>../../Externals/Stb/Include;../../Externals/assimp/Include;../../Externals/Glfw/Include;../../Externals/Glad/Include;../../Externals/glm;../../Externals/custom/Include;$(IncludePath)</IncludePath>
-    <LibraryPath>../../Externals/assimp/Libs;../../Externals/Glfw/Libs;../../Externals/OpenGL/Libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../Externals/custom/Include;../../Externals/Glfw/Include;../../Externals/Glad/Include;../../Externals/Stb/Include;../../Externals/glm;$(IncludePath)</IncludePath>
+    <LibraryPath>../../Externals/OpenGL/Libs;../../Externals/Glfw/Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -92,12 +107,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,19 +169,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Hello Triangle\glad.c" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="stb_image.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ssao.fs" />
-    <None Include="ssao.vs" />
-    <None Include="ssao_blur.fs" />
-    <None Include="ssao_geometry.fs" />
-    <None Include="ssao_geometry.vs" />
-    <None Include="ssao_light.fs" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
